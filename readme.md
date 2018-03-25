@@ -20,7 +20,7 @@ Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Ol
 * FeatherWing Doubler - Prototyping Add-on For All Feather Boards 
 * Adafruit 0.8" 8x16 LED Matrix FeatherWing Display - Red
 * Adafruit 0.54" Quad Alphanumeric FeatherWing Display - Red
-* Adafruit Parts Pal (bread board and wires)
+* Adafruit Parts Pal (wires)
 
 ### Unused parts provided:  
 * Adafruit Power Relay FeatherWing 
