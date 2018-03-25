@@ -32,11 +32,11 @@ DHT22 temperature-humidity sensor + extras
 
 # Architecture Notes 
 
-We started by connecting our Feather HUZZAH w/ ESP8266 WiFi to our Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor, and running a simple script, which provided a feed of ethylene detected in parts per million.  We tested our idea by comparing the read in the open air to a Ziplock bag filled with overripe fruits, which should have a high ethylene content.  This proved our foundational concept of sensing when produce gets near spoiling by monitoring ethylene in a vegetable drawer or other container.  
+We started by connecting our Feather HUZZAH w/ ESP8266 WiFi to our Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor, and running a simple script, which provided a feed of ethylene levels.  We tested our idea by comparing the read in the open air to a Ziplock bag filled with overripe fruits, which should have a high ethylene content.  This proved our foundational concept of sensing when produce gets near spoiling by monitoring ethylene in a vegetable drawer or other container.  
 
 We then added the feature of having a text notice sent to warn owners of overripe produce.  To do this, we created a Linux server instance on AWS, deployed a website using Node.js and Express, and sent a GET request from our Arduino device to trigger a call to the Twilio API to send a text notice.
 
-We connected the Adafruit 0.8" 8x16 LED Matrix FeatherWing Display to our Feather HUZZAH w/ ESP8266 WiFi to display a frowny face when ethylene gas levels reach a certain level.  We then added the Adafruit 0.54" Quad Alphanumeric FeatherWing Display to display the read in parts per million of ethylene being detected. We used the Arduino dashboard associated with our device to receive a feed of the gas sensor's readings and generate graphical representations of the changing data.  
+We connected the Adafruit 0.8" 8x16 LED Matrix FeatherWing Display to our Feather HUZZAH w/ ESP8266 WiFi to display a frowny face when ethylene gas levels reach a certain level.  We then added the Adafruit 0.54" Quad Alphanumeric FeatherWing Display to display the read of ethylene being detected. We used the Arduino dashboard associated with our device to receive a feed of the gas sensor's readings and generate graphical representations of the changing data.  
 
 We also created a simple front-end user interface where a user could enter their notice preferences associated with their Spoil Alert device.  
 
@@ -46,7 +46,7 @@ Our biggest obstacle arose when we tried to send an API POST request from the Ar
 
 # Notes for future improvements
 
-The code on our current device detects spoiling produce through a hardcoded number relative to the open air.  In a produce drawer or other container, the size of the container and amount of produce present would affect the gas level in parts per million without indicating spoilage.  A more ideal product would detect a slope where spoiling produce began to produce a rapidly increasing amount of gas.  This would take some further research and development.    
+The code on our current device detects spoiling produce through a hardcoded number relative to the open air.  In a produce drawer or other container, the size of the container and amount of produce present would affect the gas level without indicating spoilage.  A more ideal product would detect a slope where spoiling produce began to produce a rapidly increasing amount of gas.  This would take some further research and development.    
 
 ## Problem Statement:
 
