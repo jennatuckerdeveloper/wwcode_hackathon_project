@@ -1,4 +1,4 @@
-# Raspberry Die Spoil Alert 
+# The Raspberry Die Spoil Alert 
 
 An IoT device that will measure ethylene levels inside a container to montior for overripe fruits and vegetables and remind owners to use or compost their produce.  
 
