@@ -17,6 +17,7 @@ ESP8266WiFiMulti WiFiMulti;
 AdafruitIO_Feed *gas = io.feed("Food Waste Gas Feed");
 
 Adafruit_8x16matrix matrix = Adafruit_8x16matrix();
+Adafruit_AlphaNum4 alpha4 = Adafruit_AlphaNum4();
 
 int sensorPin = A0;    // select the input pin for the potentiometer
 
@@ -26,22 +27,21 @@ void setup() {
   USE_SERIAL.begin(115200);
 
   // set up LED matrix and clear any previous display
-  matrix.begin(0x70);  
+  matrix.begin(0x70);
+  alpha4.begin(0x71);
   matrix.clear();
+  alpha4.clear();
   matrix.writeDisplay();
+  alpha4.writeDisplay();
 
-      USE_SERIAL.println();
-    USE_SERIAL.println();
-    USE_SERIAL.println();
-
-    for(uint8_t t = 4; t > 0; t--) {
+  for(uint8_t t = 4; t > 0; t--) {
         USE_SERIAL.printf("[SETUP] WAIT %d...\n", t);
         USE_SERIAL.flush();
         delay(1000);
-    }
+}
 
-    WiFi.mode(WIFI_STA);
-    WiFiMulti.addAP("Puppet Guest", "argon4949");
+  WiFi.mode(WIFI_STA);
+  WiFiMulti.addAP("Puppet Guest", "argon4949");
 
 }
 
@@ -68,9 +68,7 @@ void loop() {
   sensorValue = analogRead(sensorPin);
   USE_SERIAL.println(sensorValue);
   gas->save(sensorValue);
-  
 
-  //if spoiled food is detected, blink
   if (sensorValue > 400) {
     USE_SERIAL.println("hey eat me");
     matrix.drawBitmap(0, 0, frown_bmp, 8, 8, LED_ON);
@@ -81,12 +79,27 @@ void loop() {
       //textAlert();
     }
   }
-  
+
   else {
     USE_SERIAL.println("all good");
     matrix.clear();
     matrix.writeDisplay();
   }
+  
+  for (int i = 0; i < 4; i++) {
+    int digit = (int) sensorValue / pow(10, 3-i);
+    sensorValue -= digit * pow(10, 3-i);
+    USE_SERIAL.println(digit);
+    alpha4.writeDigitAscii(i, '0' + digit);
+  }
+
+  alpha4.writeDisplay();
+  
+
+  //if spoiled food is detected, blink
+  
+  
+  
   delay(500);
 }
 
@@ -114,6 +127,7 @@ void textAlert(String number="5414800215") {
 
         http.end();
 }
+
 
 
 
