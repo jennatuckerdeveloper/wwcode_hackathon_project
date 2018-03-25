@@ -15,19 +15,19 @@ Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Ol
 
 ### Parts used in Spoil Alert: 
 
-Assembled Feather HUZZAH w/ ESP8266 WiFi With Stacking Headers
-Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor Breakout 
-FeatherWing Doubler - Prototyping Add-on For All Feather Boards 
-Adafruit 0.8" 8x16 LED Matrix FeatherWing Display - Red
-Adafruit 0.54" Quad Alphanumeric FeatherWing Display - Red
-Adafruit Parts Pal (bread board and wires)
+* Assembled Feather HUZZAH w/ ESP8266 WiFi With Stacking Headers
+* Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor Breakout 
+* FeatherWing Doubler - Prototyping Add-on For All Feather Boards 
+* Adafruit 0.8" 8x16 LED Matrix FeatherWing Display - Red
+* Adafruit 0.54" Quad Alphanumeric FeatherWing Display - Red
+* Adafruit Parts Pal (bread board and wires)
 
 ### Unused parts provided:  
-Adafruit Power Relay FeatherWing 
-Micro servo 
-PIR (motion) sensor 
-Magnetic contact switch (door sensor) 
-DHT22 temperature-humidity sensor + extras 
+* Adafruit Power Relay FeatherWing 
+* Micro servo 
+* PIR (motion) sensor 
+* Magnetic contact switch (door sensor) 
+* DHT22 temperature-humidity sensor + extras 
 
 
 # Architecture Notes 
