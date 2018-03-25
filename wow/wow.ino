@@ -5,6 +5,8 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 
+#include "config.h"
+
 #include <ESP8266HTTPClient.h>
 
 #define USE_SERIAL Serial
@@ -12,7 +14,7 @@
 ESP8266WiFiMulti WiFiMulti;
 #include "Adafruit_LEDBackpack.h"
 
-
+AdafruitIO_Feed *gas = io.feed("Food Waste Gas Feed");
 
 Adafruit_8x16matrix matrix = Adafruit_8x16matrix();
 
@@ -61,10 +63,12 @@ frown_bmp[] =
 
 
 void loop() {
+  io.run();
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
   USE_SERIAL.println(sensorValue);
-  delay(500);
+  gas->save(sensorValue);
+  
 
   //if spoiled food is detected, blink
   if (sensorValue > 400) {
@@ -72,17 +76,23 @@ void loop() {
     matrix.drawBitmap(0, 0, frown_bmp, 8, 8, LED_ON);
     matrix.writeDisplay();
     matrix.blinkRate(2);
-    delay(500);
 
-       if((WiFiMulti.run() == WL_CONNECTED)) {
+    if((WiFiMulti.run() == WL_CONNECTED)) {
+      //textAlert();
+    }
+  }
+  
+  else {
+    USE_SERIAL.println("all good");
+    matrix.clear();
+    matrix.writeDisplay();
+  }
+  delay(500);
+}
 
+void textAlert(String number="5414800215") {
         HTTPClient http;
-
-        USE_SERIAL.print("[HTTP] begin...\n");
-        // configure traged server and url
-        //http.begin("https://192.168.1.12/test.html", "7a 9c f4 db 40 d3 62 5a 6e 21 bc 5c cc 66 c8 3e a1 45 59 38"); //HTTPS
-        //send text about fruit going bad
-        http.begin("http://ec2-54-191-196-44.us-west-2.compute.amazonaws.com:3000/"); //HTTP
+        http.begin("http://ec2-54-191-196-44.us-west-2.compute.amazonaws.com:3000/?number=" + number); //HTTP
 
         USE_SERIAL.print("[HTTP] GET...\n");
         // start connection and send HTTP header
@@ -103,15 +113,6 @@ void loop() {
         }
 
         http.end();
-    }
-
-  }
-
-  else {
-    USE_SERIAL.println("all good");
-    matrix.clear();
-    matrix.writeDisplay();
-  }
 }
 
 
