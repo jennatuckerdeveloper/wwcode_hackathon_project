@@ -125,7 +125,7 @@ Julie Shih - LED display, presentation, animation.
 
 Corey Stone - Presentation, dashboard, data display.  
 
-*"My favorite part was discovering the dashboard and figuring out that we could get the data stream and also working with developers."i - Corey Stone* 
+*"My favorite part was discovering the dashboard and figuring out that we could get the data stream and also working with developers." - Corey Stone* 
 
 Jenna Tucker - Project management, API, name and logo.  
 
