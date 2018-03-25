@@ -1,6 +1,6 @@
 # The Raspberry Die Spoil Alert 
 
-An IoT device that will measure ethylene levels inside a container to montior for overripe fruits and vegetables and remind owners to use or compost their produce.  
+An IoT device that will measure ethylene levels inside a container to monitor for overripe fruits and vegetables and remind owners to use or compost their produce.  
 
 Project completed by Team 6 at the Women Who Code IoT Hackathon on March 23 - 25, 2018.  
 Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Oliver Fu.  
@@ -28,11 +28,11 @@ DHT22 temperature-humidity sensor + extras
 
 # Architecture Notes 
 
-We started by connecting our Feather HUZZAH w/ ESP8266 WiFi to our Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor, and running a simple script, which provided a feed of ethylene detected in parts per million.  We tested our idea by comparing the read in the open air to a ziplock bag filled with overripe fruits, which should have a high ethylene content.  This proved our foundational concept of sensing when produce gets near spoiling by monitoring ehtylene in a vegetable drawer or other container.  
+We started by connecting our Feather HUZZAH w/ ESP8266 WiFi to our Adafruit MiCS5524 CO, Alcohol and VOC Gas Sensor, and running a simple script, which provided a feed of ethylene detected in parts per million.  We tested our idea by comparing the read in the open air to a Ziplock bag filled with overripe fruits, which should have a high ethylene content.  This proved our foundational concept of sensing when produce gets near spoiling by monitoring ethylene in a vegetable drawer or other container.  
 
-We then added the feature of having a text notice sent to warn owners of overripe produce.  To do this, we created a Linux server instance on AWS, deployed a website using Node.js and Express, and sent a GET request from our Arduino device to trigger a call to the Twilio API to sent a text notice.
+We then added the feature of having a text notice sent to warn owners of overripe produce.  To do this, we created a Linux server instance on AWS, deployed a website using Node.js and Express, and sent a GET request from our Arduino device to trigger a call to the Twilio API to send a text notice.
 
-We connected the Adafruit 0.8" 8x16 LED Matrix FeatherWing Display to our Feather HUZZAH w/ ESP8266 WiFi to display a frowny face when ethylene gas levels reach a certain level.  We then added the Adafruit 0.54" Quad Alphanumeric FeatherWing Display to display the read in parts per million of ethylene being detected. We used the Arduino dashboard associated with our device to receive a feed of the gas sensor's readings and generate graphical respresentations of the changing data.  
+We connected the Adafruit 0.8" 8x16 LED Matrix FeatherWing Display to our Feather HUZZAH w/ ESP8266 WiFi to display a frowny face when ethylene gas levels reach a certain level.  We then added the Adafruit 0.54" Quad Alphanumeric FeatherWing Display to display the read in parts per million of ethylene being detected. We used the Arduino dashboard associated with our device to receive a feed of the gas sensor's readings and generate graphical representations of the changing data.  
 
 We also created a simple front-end user interface where a user could enter their notice preferences associated with their Spoil Alert device.  
 
@@ -98,7 +98,7 @@ March 25, 2018 1:00PM PST
 * Reduces environmental impacts by reducing the release of methane gas into the atmosphere
 
 ### Presentation Judging Criteria
-1.Submission of code: By 1PM on GitHub
+1. Submission of code: By 1PM on GitHub
 2. Presentation Time: 3 min
 3. Theme idea:
 - How relevant is your product to theme of sustainability?
@@ -111,7 +111,7 @@ March 25, 2018 1:00PM PST
 
 ## Authors
 
-Nick Riehl - Hardware, back-end, arichiecture.  
+Nick Riehl - Hardware, back-end, architecture.  
 
 *"My favorite learning experience was working with the hardware and figuring out how to implement two displays." - Nick Riehl* 
 
