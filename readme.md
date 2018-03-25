@@ -7,9 +7,9 @@ Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Ol
 
 ![alt text](/SpoilAlertTiny.png)
 
-![alt text](/SpoilAlert1.png)
+![alt text](/SpoilAlert1.jpg)
 
-![alt text](/SpoilAlert2.png)
+![alt text](/SpoilAlert2.jpg)
 
 # Hardware list 
 
