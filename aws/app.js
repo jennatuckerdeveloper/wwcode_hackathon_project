@@ -2,10 +2,13 @@ const accountSid = 'ACc4772fd12e4a53426ae51b0308a74ff9'
 const authToken = '189aadc721a07385b8d561181ded0fa7'
 const client = require('twilio')(accountSid, authToken)
 const express = require('express')
+var path = require('path');
 const app = express()
 
 let number = '+18573660630'
 let sent = false
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/notify/', (req, res) => {
 

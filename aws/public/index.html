@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="./style.css">
+    <title>E-Nana</title>
+  </head>
+  <body>
+  <!--will need a logo-->
+  <section id="margin-top">
+    <div class="content">
+
+
+
+      <img src="./spoilgreen.gif">
+
+      <br></br>
+
+      <form id="ourForm"class="" action="http://ec2-54-191-196-44.us-west-2.compute.amazonaws.com:3000/change/" method="get">
+        Device ID
+        <input type="text" placeholder="e.g. ADC3017">
+
+        <div class="form-group">
+          <p>how would you like to receive notifications? </p>
+
+          <label><input type="radio" name="noti">Text</label>
+
+          <label><input type="radio" name="noti">Email</label>
+
+          <br></br>
+
+        </div>
+
+          Contact info
+          <input type="text" name="number" placeholder="e.g. username@somewhere.com">
+
+          <br></br>
+
+          How frequently do you want to be notified?
+
+          <div class="form-group">
+
+            <label><input type="radio" name="freq">Daily</label>
+
+            <label><input type="radio" name="freq">Every other day</label>
+
+            <label><input type="radio" name="freq">Weekly</label>
+
+          </div>
+
+          <br></br>
+
+          <button action="submit" id="button">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  </body>
+</html>
