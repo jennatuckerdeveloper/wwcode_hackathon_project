@@ -5,7 +5,7 @@ An IoT device that will measure ethylene levels inside a container to montior fo
 Project completed by Team 6 at the Women Who Code IoT Hackathon on March 23 - 25, 2018.  
 Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Oliver Fu.  
 
-![alt text](/SpoilALert.png)
+![alt text](/SpoilAlert.png)
 
 # Hardware list 
 
