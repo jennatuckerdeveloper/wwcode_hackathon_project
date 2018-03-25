@@ -62,7 +62,7 @@ http://www.sustainabletable.org/5664/food-waste
 
 ## Background
 
-* The United States wastes roughly 40 percent of its food - the equivalent of about $165 billion per year. Food is wasted at every point along the food chain: on farms and fishing boats; during processing and distribution; in retail stores and restaurants; at home; and after it enters our trash cans.3 Of the estimated 133 billion pounds of food that goes to waste every year, much of it is perfectly edible and nutritious.
+* The United States wastes roughly 40 percent of its food - the equivalent of about $165 billion per year. Food is wasted at every point along the food chain: on farms and fishing boats; during processing and distribution; in retail stores and restaurants; at home; and after it enters our trash cans. Of the estimated 133 billion pounds of food that goes to waste every year, much of it is perfectly edible and nutritious.
 * USDA's Economic Research Service (ERS) defines food waste as "the component of food loss that occurs when an edible item goes unconsumed, as in food discarded by retailers due to color or appearance and plate waste by consumers
 * In the US, an average family of four wastes 1,160 pounds of food annually, (about 25 percent of the food they buy), costing them $1,365 to $2,275 per year. In terms of total mass, fresh fruits and vegetables account for the largest losses at the consumer level (28 percent), followed by dairy (17 percent), meat (12 percent) and seafood (33 percent). Major contributors to household food waste include:
 * Food Spoilage - About two-thirds of food waste at home is due to food not being used before it goes bad. Food spoilage at home occurs due to improper storage, lack of visibility in refrigerators, partially used ingredients and misjudged food needs.
@@ -84,7 +84,7 @@ March 25, 2018 1:00PM PST
 * Hardware has limitations (Data point can only go so high)
 
 ### User Stories
-* A user would like to select the type of fruit they just bought for the container and monitor this fruit?
+* A user would like to select the type of fruit they just bought for the container and monitor this fruit
 * A user would like to view the progress of rot over time 
 * A user would like to know how to view the data for this app
 * The user would like to view this data on their phone/laptop
@@ -125,11 +125,11 @@ Julie Shih - LED display, presentation, animation.
 
 Corey Stone - Presentation, dashboard, data display.  
 
-*"My favorite part was discovering the dashboard and figuring out that we could get the data stream and also working with developers." - Corey Stone 
+*"My favorite part was discovering the dashboard and figuring out that we could get the data stream and also working with developers."i - Corey Stone* 
 
 Jenna Tucker - Project management, API, name and logo.  
 
-*"My favorite part was working with hardware and software both for the firs time and working with my team." -Jenna Tucker*
+*"My favorite part was working with hardware and software both for the first time and working with my team." -Jenna Tucker*
 
 Oliver Fu - Front-end UI and branding.  
 
