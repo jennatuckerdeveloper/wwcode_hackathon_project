@@ -5,6 +5,8 @@ An IoT device that will measure ethylene levels inside a container to montior fo
 Project completed by Team 6 at the Women Who Code IoT Hackathon on March 23 - 25, 2018.  
 Team 6:  Nick Riehl, Janessa Munt, Julie Shih, Corey Stone, Jenna Tucker, and Oliver Fu.  
 
+![alt text](/SpoilALert.png)
+
 # Hardware list 
 
 ### Parts used in Spoil Alert: 
@@ -101,7 +103,7 @@ March 25, 2018 1:00PM PST
 3. Theme idea:
 - How relevant is your product to theme of sustainability?
  
-![alt text](http://url/to/pic1.png)
+![alt text](/pic1.png)
 
 12 Responsible Consumption
 13 Climate Action
@@ -110,21 +112,27 @@ March 25, 2018 1:00PM PST
 ## Authors
 
 Nick Riehl - Hardware, back-end, arichiecture.  
+
 *"My favorite learning experience was working with the hardware and figuring out how to implement two displays." - Nick Riehl* 
 
 Janessa Munt - Design, research, API.  
+
 *"My favorite part was learning how to utilize the IoT technology." -Janessa Munt* 
 
 Julie Shih - LED display, presentation, animation.  
+
 *"My favorite part was setting up the LED display and learning how to use the Arduino device." - Julie Shih* 
 
 Corey Stone - Presentation, dashboard, data display.  
+
 *"My favorite part was discovering the dashboard and figuring out that we could get the data stream and also working with developers." - Corey Stone 
 
 Jenna Tucker - Project management, API, name and logo.  
+
 *"My favorite part was working with hardware and software both for the firs time and working with my team." -Jenna Tucker*
 
 Oliver Fu - Front-end UI and branding.  
+
 *"My favorite part was learning more about APIs and how they work." - Oliver Fu*
 
 
