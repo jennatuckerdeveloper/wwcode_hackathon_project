@@ -11,12 +11,20 @@
 
 #define USE_SERIAL Serial
 
+unsigned long lastTime = 0;
+unsigned long currentTime;
+String payload;
+int digit;
+int httpCode;
+int count = 0;
+
 ESP8266WiFiMulti WiFiMulti;
 #include "Adafruit_LEDBackpack.h"
 
 AdafruitIO_Feed *gas = io.feed("Food Waste Gas Feed");
 
 Adafruit_8x16matrix matrix = Adafruit_8x16matrix();
+Adafruit_AlphaNum4 alpha4 = Adafruit_AlphaNum4();
 
 int sensorPin = A0;    // select the input pin for the potentiometer
 
@@ -26,22 +34,21 @@ void setup() {
   USE_SERIAL.begin(115200);
 
   // set up LED matrix and clear any previous display
-  matrix.begin(0x70);  
+  matrix.begin(0x70);
+  alpha4.begin(0x71);
   matrix.clear();
+  alpha4.clear();
   matrix.writeDisplay();
+  alpha4.writeDisplay();
 
-      USE_SERIAL.println();
-    USE_SERIAL.println();
-    USE_SERIAL.println();
-
-    for(uint8_t t = 4; t > 0; t--) {
+  for(uint8_t t = 4; t > 0; t--) {
         USE_SERIAL.printf("[SETUP] WAIT %d...\n", t);
         USE_SERIAL.flush();
         delay(1000);
-    }
-
-    WiFi.mode(WIFI_STA);
-    WiFiMulti.addAP("Puppet Guest", "argon4949");
+}
+  io.connect();
+  WiFi.mode(WIFI_STA);
+  WiFiMulti.addAP(WIFI_SSID, WIFI_PASS);
 
 }
 
@@ -53,8 +60,8 @@ frown_bmp[] =
 { B00111100,
   B01000010,
   B10100101,
-  B10000001,
   B10011001,
+  B10000001,
   B10100101,
   B01000010,
   B00111100
@@ -67,10 +74,14 @@ void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
   USE_SERIAL.println(sensorValue);
-  gas->save(sensorValue);
-  
 
-  //if spoiled food is detected, blink
+  if (count++ > 2) {
+    gas->save(sensorValue);
+    count = 0;
+  }
+
+
+
   if (sensorValue > 400) {
     USE_SERIAL.println("hey eat me");
     matrix.drawBitmap(0, 0, frown_bmp, 8, 8, LED_ON);
@@ -78,25 +89,44 @@ void loop() {
     matrix.blinkRate(2);
 
     if((WiFiMulti.run() == WL_CONNECTED)) {
-      //textAlert();
+      textAlert();
     }
   }
-  
+
   else {
     USE_SERIAL.println("all good");
     matrix.clear();
     matrix.writeDisplay();
   }
-  delay(500);
+  
+  for (int i = 0; i < 4; i++) {
+    digit = (int) sensorValue / pow(10, 3-i);
+    sensorValue -= digit * pow(10, 3-i);
+    alpha4.writeDigitAscii(i, '0' + digit);
+  }
+
+  alpha4.writeDisplay();
+  
+
+  //if spoiled food is detected, blink
+  
+  
+  
+  delay(300);
 }
 
-void textAlert(String number="5414800215") {
+void textAlert() {
+        currentTime = millis() - lastTime;
+        lastTime = millis();
+        if (currentTime < 10000) {
+          return;
+        }
         HTTPClient http;
-        http.begin("http://ec2-54-191-196-44.us-west-2.compute.amazonaws.com:3000/?number=" + number); //HTTP
+        http.begin("http://ec2-54-191-196-44.us-west-2.compute.amazonaws.com:3000/notify/"); //HTTP
 
         USE_SERIAL.print("[HTTP] GET...\n");
         // start connection and send HTTP header
-        int httpCode = http.GET();
+        httpCode = http.GET();
 
         // httpCode will be negative on error
         if(httpCode > 0) {
@@ -105,7 +135,7 @@ void textAlert(String number="5414800215") {
 
             // file found at server
             if(httpCode == HTTP_CODE_OK) {
-                String payload = http.getString();
+                payload = http.getString();
                 USE_SERIAL.println(payload);
             }
         } else {
@@ -114,6 +144,8 @@ void textAlert(String number="5414800215") {
 
         http.end();
 }
+
+
 
 
 
